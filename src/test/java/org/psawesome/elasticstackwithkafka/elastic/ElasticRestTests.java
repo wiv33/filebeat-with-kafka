@@ -1,18 +1,19 @@
 package org.psawesome.elasticstackwithkafka.elastic;
 
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.elasticsearch.client.reactive.ReactiveElasticsearchClient;
 
 @SpringBootTest
 public class ElasticRestTests {
 
-  @Autowired
-  ReactiveElasticsearchClient highLevelClient;
+  Logger log = LoggerFactory.getLogger(this.getClass());
 
   @Test
   void initElasticAccess() {
-    highLevelClient.index()
+    System.out.println(log.getName());
+    log.info("hello world!");
   }
 }
