@@ -1,10 +1,12 @@
 package org.psawesome.elasticstackwithkafka.elastic;
 
-import lombok.extern.slf4j.Slf4j;
+import org.fluentd.logger.FluentLogger;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.Map;
 
 @SpringBootTest
 public class ElasticRestTests {
@@ -14,6 +16,6 @@ public class ElasticRestTests {
   @Test
   void initElasticAccess() {
     System.out.println(log.getName());
-    log.info("hello world!");
+    log.info("hello psawesome!!");
   }
 }

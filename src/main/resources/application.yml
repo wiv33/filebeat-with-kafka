@@ -3,4 +3,4 @@ spring:
     elasticsearch:
       client:
         reactive:
-          endpoints: ${ELASTIC_ADDRESS:6da07aa5a600438794bea666fc798358.ap-northeast-2.aws.elastic-cloud.com}:${ELASTIC_PORT:9243}
+          endpoints: ${ELASTIC_ADDRESS:35.216.73.222}:${ELASTIC_PORT:9200}
