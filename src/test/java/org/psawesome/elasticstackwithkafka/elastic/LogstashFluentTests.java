@@ -5,6 +5,7 @@ import org.fluentd.logger.FluentLoggerFactory;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,17 +22,33 @@ public class LogstashFluentTests {
     LOG.log("forJava-boot", data);
   }
 
-  final FluentLogger LOG = new FluentLoggerFactory().getLogger(getClass().getName(), "localhost", 5005);
+  final FluentLogger log = new FluentLoggerFactory().getLogger(getClass().getName(), "localhost", 5005);
 
   public void sendLog() {
-    LOG.log("forJava",
+    try {
+      if (true) {
+        throw new RuntimeException("ps error");
+      }
+    } catch (RuntimeException e) {
+      final StringBuilder reduce = Arrays.stream(e.getStackTrace())
+              .map(StackTraceElement::toString)
+              .reduce(new StringBuilder("\r\n"), (stringBuilder, str) -> stringBuilder.append(str).append("\r\n"), StringBuilder::append);
+      log.log("ERROR",
+              Map.of(
+              "errorMessage", e.getMessage(),
+              "stackTrace", reduce)
+      );
+    }
+
+    log.log("forJava",
             Map.of("id", "ps!!!! 33",
                     "name", "Awesome 33 ###",
-                    "format", "자유롭군욥")
+                    "ttyy", "first",
+                    "format", "자유롭군욥 3")
     );
-    LOG.log("forJava",
+    log.log("forJava",
             Map.of("id", "ps!!!! 33",
-                    "format", "자유롭군욥")
+                    "format", "자유롭군욥 4")
     );
   }
 
