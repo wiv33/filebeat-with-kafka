@@ -1,6 +1,6 @@
-spring:
-  data:
-    elasticsearch:
-      client:
-        reactive:
-          endpoints: ${ELASTIC_ADDRESS:35.216.73.222}:${ELASTIC_PORT:9200}
+#spring:
+#  data:
+#    elasticsearch:
+#      client:
+#        reactive:
+#          endpoints: ${ELASTIC_ADDRESS:35.216.73.222}:${ELASTIC_PORT:9200}

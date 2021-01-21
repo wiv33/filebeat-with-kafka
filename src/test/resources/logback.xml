@@ -1,13 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
+<!--
     <appender name="stash" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
         <destination>127.0.0.1:5000</destination>
 
-        <!-- encoder is required -->
+        &lt;!&ndash; encoder is required &ndash;&gt;
         <encoder class="net.logstash.logback.encoder.LogstashEncoder"/>
     </appender>
+-->
 
+    <appender name="file" class="ch.qos.logback.core.FileAppender">
+        <file>/var/log/log-for-kafka.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>%-4relative [%thread] %-5level %logger{35} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+<!--
     <root level="DEBUG">
         <appender-ref ref="stash"/>
     </root>
+-->
+
+    <logger name="org.psawesome.elasticstackwithkafka" level="info">
+        <appender-ref ref="file"/>
+    </logger>
 </configuration>

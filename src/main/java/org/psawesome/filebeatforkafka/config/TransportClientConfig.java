@@ -1,4 +1,4 @@
-package org.psawesome.elasticstackwithkafka.config;
+package org.psawesome.filebeatforkafka.config;
 
 
 import org.elasticsearch.client.Client;

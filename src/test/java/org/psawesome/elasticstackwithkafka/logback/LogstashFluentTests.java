@@ -1,4 +1,4 @@
-package org.psawesome.elasticstackwithkafka.elastic;
+package org.psawesome.elasticstackwithkafka.logback;
 
 import org.fluentd.logger.FluentLogger;
 import org.fluentd.logger.FluentLoggerFactory;
