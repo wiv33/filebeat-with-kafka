@@ -1,6 +1,9 @@
-#spring:
-#  data:
-#    elasticsearch:
-#      client:
-#        reactive:
-#          endpoints: ${ELASTIC_ADDRESS:35.216.73.222}:${ELASTIC_PORT:9200}
+server:
+  port: 8090
+
+
+logging:
+  file:
+    name: /var/log/app/for-kafka.log
+  level:
+    reactor: debug

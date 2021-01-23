@@ -10,7 +10,7 @@
 -->
 
     <appender name="file" class="ch.qos.logback.core.FileAppender">
-        <file>/var/log/log-for-kafka.log</file>
+        <file>/var/log/app/log-for-kafka.log</file>
         <append>true</append>
         <encoder>
             <pattern>%-4relative [%thread] %-5level %logger{35} - %msg%n</pattern>
