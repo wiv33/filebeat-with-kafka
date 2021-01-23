@@ -1,7 +1,11 @@
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+
 plugins {
     id 'org.springframework.boot' version '2.4.1'
     id 'io.spring.dependency-management' version '1.0.10.RELEASE'
     id 'java'
+    id 'com.palantir.docker' version '0.22.1'
 }
 
 group = 'org.psawesome'
@@ -12,6 +16,21 @@ configurations {
     compileOnly {
         extendsFrom annotationProcessor
     }
+}
+
+ext {
+    BUILD_VERSION = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd_HH_mm_ss"))
+}
+
+docker {
+    name 'psawesome/genlog'
+    tag 'Dockerhub', "psawesome/genlog:${project.version}_${BUILD_VERSION}"
+    dockerfile file('Dockerfile')
+    files tasks.bootJar.outputs.files
+    buildArgs(['JAR_FILE': tasks.bootJar.outputs.files.singleFile.name])
+    labels(['key': 'value'])
+    pull true
+    noCache true
 }
 
 repositories {
