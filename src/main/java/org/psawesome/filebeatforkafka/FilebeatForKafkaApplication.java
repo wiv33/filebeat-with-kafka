@@ -5,14 +5,11 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
-import net.logstash.logback.encoder.org.apache.commons.lang3.builder.HashCodeExclude;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import reactor.core.Disposable;
 import reactor.core.publisher.Flux;
-import reactor.core.scheduler.Scheduler;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
