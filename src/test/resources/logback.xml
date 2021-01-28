@@ -23,7 +23,7 @@
     </root>
 -->
 
-    <logger name="org.psawesome.elasticstackwithkafka" level="info">
+    <logger name="org.psawesome.filebeatforkafka" level="info">
         <appender-ref ref="file"/>
     </logger>
 </configuration>

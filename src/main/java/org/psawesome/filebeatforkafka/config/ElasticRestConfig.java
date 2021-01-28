@@ -10,7 +10,7 @@ import org.springframework.http.HttpHeaders;
 import java.net.InetSocketAddress;
 
 @Configuration
-public class RestClientConfig extends AbstractReactiveElasticsearchConfiguration {
+public class ElasticRestConfig extends AbstractReactiveElasticsearchConfiguration {
 
   @Override
   public ReactiveElasticsearchClient reactiveElasticsearchClient() {

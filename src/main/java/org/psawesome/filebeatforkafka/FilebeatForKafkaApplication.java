@@ -5,6 +5,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
+import org.psawesome.filebeatforkafka.config.KafkaManager;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -27,13 +28,17 @@ public class FilebeatForKafkaApplication {
   @Bean
   CommandLineRunner runner() {
     return args -> {
-      Flux.generate(sink -> sink.next(new StockInfo()))
-              .delayElements(Duration.ofMillis(333))
-              .index()
-              .log()
-              .subscribe();
-      log.info("Hello ps world!!!");
+      runHelloWorld();
     };
+  }
+
+  private void runHelloWorld() {
+    Flux.generate(sink -> sink.next(new StockInfo()))
+            .delayElements(Duration.ofMillis(333))
+            .index()
+            .log()
+            .subscribe();
+    log.info("Hello ps world!!!");
   }
 
 }
