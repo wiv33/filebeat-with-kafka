@@ -14,7 +14,7 @@ public class LogstashFluentTests {
 
   @Test
   void testFluentLoggerJava() {
-    final FluentLogger LOG = new FluentLoggerFactory().getLogger(getClass().getName(), "localhost", 5005);
+    final FluentLogger LOG = new FluentLoggerFactory().getLogger(getClass().getName(), "35.216.73.222", 5005);
 
     Map<String, Object> data = new HashMap<>();
     data.put("id", "ps in test ");
@@ -22,7 +22,7 @@ public class LogstashFluentTests {
     LOG.log("forJava-boot", data);
   }
 
-  final FluentLogger log = new FluentLoggerFactory().getLogger(getClass().getName(), "localhost", 5005);
+  final FluentLogger log = new FluentLoggerFactory().getLogger(getClass().getName(), "35.216.73.222", 5005);
 
   public void sendLog() {
     try {
